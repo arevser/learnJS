@@ -38,5 +38,5 @@ res.addLiMenu();
 res.changeBgBody();
 res.changeTitle();
 res.removeAdv();
-res.askUser();
+//res.askUser();
 console.log(res.changeBgBody());
