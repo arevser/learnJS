@@ -20,6 +20,13 @@ let money,
     price;
 
 open.addEventListener('click', function () {
+    let runStart = setTimeout(start, 2000);
+    //clearTimeout(runStart);
+    //let repeatStart = setInterval(start, 2000);
+    //clearInterval(repeatStart);
+});
+
+function start() {
     money = prompt("Ваш бюджет?", "");
 
     while (isNaN(money) || money == '' || money == null) {
@@ -30,7 +37,7 @@ open.addEventListener('click', function () {
 
     name_value.textContent = prompt("Название вашего магазина?", "").toUpperCase();
     mainList.shopName = name_value.innerHTML;
-});
+}
 
 goods_btn.addEventListener('click', function () {
     for (let i = 0; i < goods_item.length; i++) {
@@ -47,7 +54,7 @@ goods_btn.addEventListener('click', function () {
 });
 
 employers_btn.addEventListener('click', function () {
-    for (let i = 0; i < hire_employers_item.length; i++){
+    for (let i = 0; i < hire_employers_item.length; i++) {
         let name = hire_employers_item[i].value;
         mainList.employers[i] = name;
 
@@ -55,8 +62,8 @@ employers_btn.addEventListener('click', function () {
     }
 });
 
-choose_item.addEventListener('change', function() {
-let items = choose_item.value;
+choose_item.addEventListener('change', function () {
+    let items = choose_item.value;
     if (isNaN(items) && items != '') {
         mainList.shopItems = items.split(", ");
         mainList.shopItems.sort();
@@ -68,20 +75,21 @@ let items = choose_item.value;
 time_value.addEventListener('change', function () {
     let time = time_value.value;
 
-    if (time < 0){
+    if (time < 0) {
         console.log("Такого не может быть!");
         mainList.open = false;
     } else if (time > 8 && time < 20) {
         console.log("Время работать!");
         mainList.open = true;
-    } else if (time < 24){
+    } else if (time < 24) {
         console.log("Уже слишком поздно");
         mainList.open = false;
     } else {
         console.log("В сутках только 24 часа!");
         mainList.open = false;
-    };
-    if (mainList.open == true){
+    }
+    ;
+    if (mainList.open == true) {
         isopen_value.style.backgroundColor = "green";
     } else {
         isopen_value.style.backgroundColor = "red";
@@ -91,7 +99,6 @@ time_value.addEventListener('change', function () {
 budget_btn.addEventListener('click', function () {
     count_budget_value.value = money / 30;
 });
-
 
 
 const mainList = {
